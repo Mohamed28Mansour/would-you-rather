@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleInitialData } from "./actions/shared";
+import "./App.scss";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import AddQuestion from "./pages/AddQuestion";
+import SingleQuestion from "./components/SingleQuestion";
+import Leaderboard from "./pages/Leaderboard";
 
-function App() {
+function App({ dispatch }) {
+  const [isNavigationAllowed, setIsNavigationAllowed] = useState(false);
+
+  const handleNavigationPermission = () => {
+    setIsNavigationAllowed(true);
+  };
+
+  useEffect(() => {
+    dispatch(handleInitialData());
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path="/">
+          <Home handleNavigationPermission={handleNavigationPermission} />
+        </Route>
+        <Route exact path="/add">
+          <AddQuestion isNavigationAllowed={isNavigationAllowed} />
+        </Route>
+        <Route exact path="/dashboard">
+          <Dashboard isNavigationAllowed={isNavigationAllowed} />
+        </Route>
+        <Route exact path="/leaderboard">
+          <Leaderboard isNavigationAllowed={isNavigationAllowed} />
+        </Route>
+        <Route exact path="/question/:question_id">
+          <SingleQuestion isNavigationAllowed={isNavigationAllowed} />
+        </Route>
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default connect()(App);

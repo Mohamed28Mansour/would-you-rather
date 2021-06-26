@@ -2,17 +2,24 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-const QuestionCard = ({ author, text, id }) => {
+const QuestionCard = ({ author, text, id, displayUnansweredQuestions }) => {
   const [toQuestion, setToQuestion] = useState(false);
+  const [toResults, setToResults] = useState(false);
 
   const clickHandler = () => {
-    setToQuestion(true);
+    if (displayUnansweredQuestions) {
+      setToQuestion(true);
+    } else {
+      setToResults(true);
+    }
   };
 
   if (toQuestion) {
     return <Redirect to={`/question/${id}`} />;
   }
-  console.log(author.name);
+  if (toResults) {
+    return <Redirect to={`/result/${id}`} />;
+  }
   return (
     <div>
       <div>

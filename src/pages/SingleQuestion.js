@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import LeaderboardList from "../components/LeaderboardList";
+import AnswerQuestion from "../components/AnswerQuestion";
 
-const Leaderboard = ({ isNavigationAllowed }) => {
+const SingleQuestion = ({ isNavigationAllowed }) => {
   if (!isNavigationAllowed) {
     return <Redirect to="/" />;
   }
@@ -12,9 +12,9 @@ const Leaderboard = ({ isNavigationAllowed }) => {
   return (
     <div>
       <NavBar />
-      <LeaderboardList />
+      <AnswerQuestion />
     </div>
   );
 };
 
-export default connect()(Leaderboard);
+export default connect()(SingleQuestion);

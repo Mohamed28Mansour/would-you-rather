@@ -18,8 +18,7 @@ const SignInForm = ({ allUsers, dispatch, handleNavigationPermission }) => {
   if (toDashboard) {
     return <Redirect to="/dashboard" />;
   }
-  console.log(allUsers);
-  console.log({ selectedUser });
+
   let dropDownUsers = allUsers.map((user) => {
     return {
       key: user.id,

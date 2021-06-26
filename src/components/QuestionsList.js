@@ -6,19 +6,23 @@ const QuestionsList = ({ allQuestions, authedUser, users }) => {
   const [displayUnansweredQuestions, setDisplayUnansweredQuestions] =
     useState(true);
 
-  const answeredQuestions = allQuestions.filter((question) => {
-    return (
-      question.optionOne.votes.includes(authedUser) ||
-      question.optionTwo.votes.includes(authedUser)
-    );
-  });
+  const answeredQuestions = allQuestions
+    .filter((question) => {
+      return (
+        question.optionOne.votes.includes(authedUser) ||
+        question.optionTwo.votes.includes(authedUser)
+      );
+    })
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  const unansweredQuestions = allQuestions.filter((question) => {
-    return (
-      !question.optionOne.votes.includes(authedUser) ||
-      !question.optionTwo.votes.includes(authedUser)
-    );
-  });
+  const unansweredQuestions = allQuestions
+    .filter((question) => {
+      return (
+        !question.optionOne.votes.includes(authedUser) &&
+        !question.optionTwo.votes.includes(authedUser)
+      );
+    })
+    .sort((a, b) => b.timestamp - a.timestamp);
 
   const showUnanswered = () => {
     setDisplayUnansweredQuestions(true);
@@ -38,7 +42,6 @@ const QuestionsList = ({ allQuestions, authedUser, users }) => {
         <div>
           {!displayUnansweredQuestions &&
             answeredQuestions.map((question) => {
-              console.log(question);
               return (
                 <QuestionCard
                   key={question.id}
@@ -50,13 +53,13 @@ const QuestionsList = ({ allQuestions, authedUser, users }) => {
             })}
           {displayUnansweredQuestions &&
             unansweredQuestions.map((question) => {
-              console.log(question);
               return (
                 <QuestionCard
                   key={question.id}
                   author={users[question.author]}
                   text={question.optionOne.text}
                   id={question.id}
+                  displayUnansweredQuestions={displayUnansweredQuestions}
                 />
               );
             })}

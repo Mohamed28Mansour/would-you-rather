@@ -32,11 +32,13 @@ const NavBar = ({ user, dispatch }) => {
           </ul>
         </div>
         <div className="nav-user">
-          <img src={user[0].avatarURL} alt="" className="avatar" />
           Hello {user[0].name}
+          <img src={user[0].avatarURL} alt="" className="avatar" />
         </div>
-        <div className="logout">
-          <button onClick={() => handleLogOut()}>Logout</button>
+        <div>
+          <button className="logout" onClick={() => handleLogOut()}>
+            Logout
+          </button>
         </div>
       </div>
     );

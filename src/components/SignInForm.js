@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 import { handleAuthedUser } from "../actions/authedUser";
 
-const SignInForm = ({ allUsers, dispatch, handleNavigationPermission }) => {
+const SignInForm = ({ allUsers, dispatch }) => {
   const [selectedUser, setSelectedUser] = useState("");
-  const [toDashboard, setToDashboard] = useState(false);
+  const [redirectToPage, setRedirectToPage] = useState(false);
+
+  const { state } = useLocation();
 
   const handleSubmit = () => {
     dispatch(handleAuthedUser(selectedUser));
-    handleNavigationPermission();
     setSelectedUser("");
-    setToDashboard(true);
+    setRedirectToPage(true);
   };
 
-  if (toDashboard) {
-    return <Redirect to="/dashboard" />;
+  if (redirectToPage) {
+    return <Redirect to={state?.from || "/dashboard"} />;
   }
 
   let dropDownUsers = allUsers.map((user) => {

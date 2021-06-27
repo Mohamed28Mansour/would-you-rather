@@ -1,14 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Results from "../components/Results";
 
-const ResultPage = (isNavigationAllowed) => {
-  if (!isNavigationAllowed) {
-    return <Redirect to="/" />;
-  }
-
+const ResultPage = () => {
   return (
     <div>
       <NavBar />

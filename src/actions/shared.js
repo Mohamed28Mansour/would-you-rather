@@ -6,6 +6,7 @@ import {
 } from "../_DATA";
 import { receiveUsers } from "./users";
 import { receiveQuestions } from "./questions";
+import { setAuthedUser } from "./authedUser";
 
 export const ADD_QUESTION = "ADD_QUESTION";
 export const ADD_ANSWER = "ADD_ANSWER";
@@ -21,8 +22,10 @@ async function getInitialData() {
 export function handleInitialData() {
   return async (dispatch) => {
     const { users, questions } = await getInitialData();
+    const initialUser = "";
     dispatch(receiveUsers(users));
     dispatch(receiveQuestions(questions));
+    dispatch(setAuthedUser(initialUser));
   };
 }
 

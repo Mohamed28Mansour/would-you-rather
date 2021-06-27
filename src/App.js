@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
@@ -9,14 +9,10 @@ import AddQuestion from "./pages/AddQuestion";
 import SingleQuestion from "./pages/SingleQuestion";
 import Leaderboard from "./pages/Leaderboard";
 import ResultPage from "./pages/ResultPage";
+import PrivateRoute from "./components/PrivateRoute";
+import ErrorPath from "./pages/ErrorPath";
 
 function App({ dispatch }) {
-  const [isNavigationAllowed, setIsNavigationAllowed] = useState(false);
-
-  const handleNavigationPermission = () => {
-    setIsNavigationAllowed(true);
-  };
-
   useEffect(() => {
     dispatch(handleInitialData());
     // eslint-disable-next-line
@@ -26,23 +22,32 @@ function App({ dispatch }) {
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Home handleNavigationPermission={handleNavigationPermission} />
+          <Home />
         </Route>
-        <Route exact path="/add">
-          <AddQuestion isNavigationAllowed={isNavigationAllowed} />
-        </Route>
-        <Route exact path="/dashboard">
-          <Dashboard isNavigationAllowed={isNavigationAllowed} />
-        </Route>
-        <Route exact path="/leaderboard">
-          <Leaderboard isNavigationAllowed={isNavigationAllowed} />
-        </Route>
-        <Route exact path="/question/:question_id">
-          <SingleQuestion isNavigationAllowed={isNavigationAllowed} />
-        </Route>
-        <Route exact path="/result/:question_id">
-          <ResultPage isNavigationAllowed={isNavigationAllowed} />
-        </Route>
+
+        <PrivateRoute exact path="/add">
+          <AddQuestion />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/dashboard">
+          <Dashboard />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/leaderboard">
+          <Leaderboard />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/question/:question_id">
+          <SingleQuestion />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/result/:question_id">
+          <ResultPage />
+        </PrivateRoute>
+
+        <PrivateRoute>
+          <ErrorPath />
+        </PrivateRoute>
       </Switch>
     </div>
   );

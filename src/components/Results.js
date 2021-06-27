@@ -29,7 +29,11 @@ const Results = ({ questions, users }) => {
       </div>
       <div>
         <h2>Results:</h2>
-        <div>
+        <div
+          className={
+            question.optionOne.votes.includes(author.id) ? "answer" : "none"
+          }
+        >
           <h4>{question.optionOne.text}</h4>
           <div>
             <div style={{ ...optionOneBar }}>
@@ -42,7 +46,11 @@ const Results = ({ questions, users }) => {
             {question.optionOne.votes.length} out of {totalVotes} votes
           </p>
         </div>
-        <div>
+        <div
+          className={
+            question.optionTwo.votes.includes(author.id) ? "answer" : "none"
+          }
+        >
           <h4>{question.optionTwo.text}</h4>
           <div>
             <div style={{ ...optionTwoBar }}>

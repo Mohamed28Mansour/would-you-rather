@@ -9,9 +9,16 @@ const AnswerQuestion = ({ questions, users, dispatch }) => {
 
   const { question_id } = useParams();
 
-  const author = users[questions[question_id].author];
+  let question;
 
-  const question = questions[question_id];
+  let author;
+
+  if (Object.keys(questions).includes(question_id)) {
+    question = questions[question_id];
+    author = users[questions[question_id].author];
+  } else {
+    return <Redirect to="/random" />;
+  }
 
   const displayAnswers = () => {
     setToResults(true);
@@ -32,45 +39,47 @@ const AnswerQuestion = ({ questions, users, dispatch }) => {
   };
   return (
     <div>
-      <div>
-        <div>
-          <h3>{author.name} asks:</h3>
-        </div>
+      {question && author && (
         <div>
           <div>
-            <img
-              src={author.avatarURL}
-              alt={author.name}
-              className="big-avatar"
-            />
+            <h3>{author.name} asks:</h3>
           </div>
           <div>
-            <h3>Would you rather...</h3>
+            <div>
+              <img
+                src={author.avatarURL}
+                alt={author.name}
+                className="big-avatar"
+              />
+            </div>
+            <div>
+              <h3>Would you rather...</h3>
 
-            <form onSubmit={(e) => handleSubmit(e)}>
-              <label>
-                <input
-                  name="option"
-                  type="radio"
-                  value="optionOne"
-                  onChange={(e) => optionSelector(e.target.value)}
-                />
-                <p>{question.optionOne.text}</p>
-              </label>
-              <label>
-                <input
-                  name="option"
-                  type="radio"
-                  value="optionTwo"
-                  onChange={(e) => optionSelector(e.target.value)}
-                />
-                <p>{question.optionTwo.text}</p>
-              </label>
-              <button type="submit">Submit Answer</button>
-            </form>
+              <form onSubmit={(e) => handleSubmit(e)}>
+                <label>
+                  <input
+                    name="option"
+                    type="radio"
+                    value="optionOne"
+                    onChange={(e) => optionSelector(e.target.value)}
+                  />
+                  <p>{question.optionOne.text}</p>
+                </label>
+                <label>
+                  <input
+                    name="option"
+                    type="radio"
+                    value="optionTwo"
+                    onChange={(e) => optionSelector(e.target.value)}
+                  />
+                  <p>{question.optionTwo.text}</p>
+                </label>
+                <button type="submit">Submit Answer</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

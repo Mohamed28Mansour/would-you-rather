@@ -1,11 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Results = ({ questions, users }) => {
   const { question_id } = useParams();
-  const author = users[questions[question_id].author];
-  const question = questions[question_id];
+  let author;
+  let question;
+
+  if (Object.keys(questions).includes(question_id)) {
+    question = questions[question_id];
+    author = users[questions[question_id].author];
+  } else {
+    return <Redirect to="/random" />;
+  }
+
   const totalVotes =
     question.optionOne.votes.length + question.optionTwo.votes.length;
 

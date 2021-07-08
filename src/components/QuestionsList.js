@@ -33,11 +33,15 @@ const QuestionsList = ({ allQuestions, authedUser, users }) => {
   };
 
   return (
-    <div className="home-container">
-      <div className="dashboard-box">
+    <div className="container">
+      <div className="box">
         <div>
-          <button onClick={showUnanswered}>Unanswered Questions</button>
-          <button onClick={showAnswered}>Answered Questions</button>
+          <button className="selection-btn" onClick={showUnanswered}>
+            Unanswered Questions
+          </button>
+          <button className="selection-btn" onClick={showAnswered}>
+            Answered Questions
+          </button>
         </div>
         <div>
           {!displayUnansweredQuestions &&

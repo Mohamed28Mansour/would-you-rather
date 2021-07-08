@@ -5,10 +5,10 @@ import NewQuestion from "../components/NewQuestion";
 
 const AddQuestion = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <NewQuestion />
-    </div>
+    </>
   );
 };
 

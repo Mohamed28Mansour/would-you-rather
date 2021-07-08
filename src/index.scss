@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* navbar */
+
+.nav-container {
+  align-items: center;
+  height: 5vh;
+  display: flex;
+  margin-top: 0.5vh;
+  border-bottom: 5px solid lightblue;
+}
+
+.nav-tabs {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+  & ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    list-style-type: none;
+
+    & li {
+      font-size: 1.5vw;
+      font-weight: 600;
+    }
+  }
+}
+
+.nav-user {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+
+.logout {
+  margin-left: 10vw;
+  display: flex;
+  font-size: 1.5vw;
+  font-weight: 600;
+  border: none;
+  color: #4183c4;
+  background-color: white;
+}
+
+// home
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.box {
+  margin-top: 2%;
+  min-height: 40vh;
+  min-width: 40vw;
+  border: 5px solid lightgray;
+  border-radius: 2%;
+  padding: 1%;
+}
+
+.greeting {
+  background-color: lightblue;
+  padding: 5%;
+  text-align: center;
+
+  & h2 {
+    margin-bottom: 2%;
+  }
+}
+
+.sign-in {
+  text-align: center;
+  & img {
+    height: 40vh;
+    width: 30vw;
+    margin-top: 5%;
+  }
+
+  & h3 {
+    margin-top: 2%;
+    color: lightblue;
+  }
+}
+
+.btn {
+  width: 50%;
+  height: 5vh;
+  background-color: lightblue;
+  font-size: 1vw;
+  font-weight: 600;
+  color: white;
+  border: lightgray;
+  margin-bottom: 3%;
+  border-radius: 2%;
+}
+
+.selection-btn {
+  background-color: lightblue;
+  color: white;
+  border: lightgray;
+  height: 5vh;
+  width: 48%;
+  margin: 1%;
+  border-radius: 10%;
+}
+
+.card {
+  margin: 2%;
+  border: 5px solid lightgray;
+  padding: 2%;
+  border-radius: 2%;
+}
+
+.card-display {
+  display: flex;
+}
+
+.leader-display {
+  display: flex;
+  justify-content: space-between;
+  min-height: 17vh;
+
+  & ul {
+    list-style: none;
+  }
+}
+
+.score {
+  width: 8vw;
+  border: 5px solid lightgray;
+  border-radius: 2%;
+
+  & h3 {
+    background-color: lightblue;
+    text-align: center;
+    height: 8vh;
+    padding-top: 20%;
+  }
+
+  & h4 {
+    text-align: center;
+  }
+}
+
+.question {
+  margin: 0 15%;
+
+  & button {
+    background-color: lightblue;
+    color: white;
+    border: lightgray;
+    height: 5vh;
+    padding: 5%;
+    border-radius: 10%;
+  }
+}
+
+.question-form {
+  border: 5px solid lightgray;
+  border-radius: 2%;
+  margin: 6% 2% 2% 2%;
+  padding: 2%;
+
+  & h3 {
+    text-decoration: underline;
+  }
+
+  & input {
+    border-color: lightgray;
+    margin-left: 2vw;
+    width: 30vw;
+    padding: 1%;
+    border-radius: 15%;
+  }
+
+  & button {
+    margin-top: 2%;
+    margin-left: 25%;
+  }
+}
+
+.answer-form-card {
+  display: flex;
+  border: 5px solid lightgray;
+  border-radius: 2%;
+  margin: 6% 2% 2% 2%;
+  padding: 1%;
+}
+
+.answer-form {
+  max-width: 50%;
+  margin: 2vh 2vw;
+
+  & label {
+    display: block;
+    margin-bottom: 2vh;
+  }
+
+  & span {
+    margin-left: 1vw;
+  }
+}
+
+.small-btn {
+  background-color: lightblue;
+  margin: 2vh 0 0 2vw;
+  height: 5vh;
+  border: lightgray;
+  color: white;
+  padding: 5%;
+  border-radius: 5%;
+}
+
+.author {
+  width: 50%;
+  margin: 2vh 2vw;
+}
+
+.avatar {
+  height: 25px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.big-avatar {
+  height: 10vh;
+  border-radius: 25px;
+  margin-top: 3vh;
+}
+
+.answer {
+  background-color: lightgreen;
+  margin-bottom: 2vh;
+  padding: 2%;
+}
+
+.results-container {
+  margin: 2vh 3vw;
+  width: 50%;
+}
+
+.option {
+  margin-bottom: 2vh;
+  padding: 2%;
+}

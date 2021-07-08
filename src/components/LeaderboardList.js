@@ -15,19 +15,21 @@ const LeaderboardList = ({ users }) => {
   const sortedUsers = getSortedUsersWithScore(users);
 
   return (
-    <div>
-      {sortedUsers.map((user) => {
-        return (
-          <UserCard
-            key={user.id}
-            name={user.name}
-            avatar={user.avatarURL}
-            createdQuestions={user.questions.length}
-            answered={Object.keys(user.answers).length}
-            score={user.score}
-          />
-        );
-      })}
+    <div className="container">
+      <div className="box">
+        {sortedUsers.map((user) => {
+          return (
+            <UserCard
+              key={user.id}
+              name={user.name}
+              avatar={user.avatarURL}
+              createdQuestions={user.questions.length}
+              answered={Object.keys(user.answers).length}
+              score={user.score}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

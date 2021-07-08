@@ -5,10 +5,10 @@ import LeaderboardList from "../components/LeaderboardList";
 
 const Leaderboard = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <LeaderboardList />
-    </div>
+    </>
   );
 };
 

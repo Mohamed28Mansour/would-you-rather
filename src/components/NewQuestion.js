@@ -29,12 +29,12 @@ const NewQuestion = ({ dispatch }) => {
   };
 
   return (
-    <div className="home-container">
-      <div className="sign-in-box">
+    <div className="container">
+      <div className="box">
         <div className="greeting">
           <h2>Create New Question</h2>
         </div>
-        <div className="sign-in">
+        <div className="question-form">
           <form onSubmit={handleSubmit}>
             <h3>Would you rather...</h3>
             <input

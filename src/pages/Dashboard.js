@@ -5,10 +5,10 @@ import QuestionsList from "../components/QuestionsList";
 
 const Dashboard = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <QuestionsList />
-    </div>
+    </>
   );
 };
 

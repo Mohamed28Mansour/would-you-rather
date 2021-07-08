@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
-import "./App.scss";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import AddQuestion from "./pages/AddQuestion";

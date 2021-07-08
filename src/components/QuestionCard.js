@@ -21,24 +21,22 @@ const QuestionCard = ({ author, text, id, displayUnansweredQuestions }) => {
     return <Redirect to={`/result/${id}`} />;
   }
   return (
-    <div>
+    <div className="card">
       <div>
+        <h3>{author.name} asks:</h3>
+      </div>
+      <div className="card-display">
         <div>
-          <h3>{author.name} asks:</h3>
+          <img
+            src={author.avatarURL}
+            alt={author.name}
+            className="big-avatar"
+          />
         </div>
-        <div>
-          <div>
-            <img
-              src={author.avatarURL}
-              alt={author.name}
-              className="big-avatar"
-            />
-          </div>
-          <div>
-            <h4>Would you rather</h4>
-            <p>{text}</p>
-            <button onClick={() => clickHandler()}>View Poll</button>
-          </div>
+        <div className="question">
+          <h4>Would you rather</h4>
+          <p>{text}</p>
+          <button onClick={() => clickHandler()}>View Poll</button>
         </div>
       </div>
     </div>

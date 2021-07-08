@@ -5,7 +5,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import middleware from "./middleware";
-import "./index.css";
+import "./index.scss";
 import "semantic-ui-css/semantic.min.css";
 import App from "./App";
 

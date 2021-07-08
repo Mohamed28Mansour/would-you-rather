@@ -5,10 +5,10 @@ import Results from "../components/Results";
 
 const ResultPage = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <Results />
-    </div>
+    </>
   );
 };
 

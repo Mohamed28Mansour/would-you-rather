@@ -38,21 +38,19 @@ const AnswerQuestion = ({ questions, users, dispatch }) => {
     setSelectedOption(value);
   };
   return (
-    <div>
+    <div className="container">
       {question && author && (
-        <div>
-          <div>
-            <h3>{author.name} asks:</h3>
-          </div>
-          <div>
-            <div>
+        <div className="box">
+          <div className="answer-form-card">
+            <div className="author">
+              <h3>{author.name} asks:</h3>
               <img
                 src={author.avatarURL}
                 alt={author.name}
                 className="big-avatar"
               />
             </div>
-            <div>
+            <div className="answer-form">
               <h3>Would you rather...</h3>
 
               <form onSubmit={(e) => handleSubmit(e)}>
@@ -63,7 +61,7 @@ const AnswerQuestion = ({ questions, users, dispatch }) => {
                     value="optionOne"
                     onChange={(e) => optionSelector(e.target.value)}
                   />
-                  <p>{question.optionOne.text}</p>
+                  <span>{question.optionOne.text}</span>
                 </label>
                 <label>
                   <input
@@ -72,9 +70,11 @@ const AnswerQuestion = ({ questions, users, dispatch }) => {
                     value="optionTwo"
                     onChange={(e) => optionSelector(e.target.value)}
                   />
-                  <p>{question.optionTwo.text}</p>
+                  <span>{question.optionTwo.text}</span>
                 </label>
-                <button type="submit">Submit Answer</button>
+                <button className="small-btn" type="submit">
+                  Submit Answer
+                </button>
               </form>
             </div>
           </div>

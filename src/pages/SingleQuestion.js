@@ -5,10 +5,10 @@ import AnswerQuestion from "../components/AnswerQuestion";
 
 const SingleQuestion = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <AnswerQuestion />
-    </div>
+    </>
   );
 };
 

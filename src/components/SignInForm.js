@@ -29,8 +29,8 @@ const SignInForm = ({ allUsers, dispatch }) => {
     };
   });
   return (
-    <div className="home-container">
-      <div className="sign-in-box">
+    <div className="container">
+      <div className="box">
         <div className="greeting">
           <h2>Welcome to the Would You Rather App!</h2>
           <p>Please sign in to continue</p>
@@ -44,7 +44,7 @@ const SignInForm = ({ allUsers, dispatch }) => {
 
           <Dropdown
             onChange={(e, { value }) => setSelectedUser(value)}
-            style={{ width: "70%", margin: "3% 0" }}
+            style={{ width: "70%", margin: "3% 15%", textAlign: "center" }}
             placeholder="Select a profile"
             fluid
             selection
